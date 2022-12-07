@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>YouTube Video to eMail</title>
+
+    </head>
+
+    <body>
+
+        <script>
+
+            function loaded() {
+                console.log('loaded');
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                var id = urlParams.get("id");
+                if (id == null) {
+                    document.body.innerHTML = "In order to use this, type ?id= plus the YouTube video ID.";
+                }
+                else {
+                    var imgUrl = "http://i.ytimg.com/vi/" + id + "/mqdefault.jpg";
+                    var ytUrl = "https://www.youtube.com/watch?v=" + id;
+                    document.getElementsByTagName("a")[0].href = ytUrl;
+                    document.getElementsByTagName("img")[0].src = imgUrl;
+                }
+            }
+
+            window.onload = loaded;
+
+        </script>
+        
+        <a href=""> 
+            <img src=""> 
+        </a> 
+
+    </body>
+
+</html>
